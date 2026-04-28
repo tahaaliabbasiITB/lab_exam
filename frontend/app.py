@@ -24,17 +24,17 @@ if not df.empty:
     search_query = st.text_input("Search by Name or Location", "")
 
     if search_query:
-        filtered_df = df[
+        filtered_dataframe = df[
             df['name'].str.contains(search_query, case=False, na=False) |
             df['location'].str.contains(search_query, case=False, na=False)
         ]
     else:
-        filtered_df = df
+        filtered_dataframe = df
 
     
-    st.write(f"Showing {len(filtered_df)} items")
+    st.write(f"Showing {len(filtered_dataframe)} items")
     
-    st.dataframe(filtered_df, use_container_width=True, hide_index=True)
+    st.dataframe(filtered_dataframe, use_container_width=True, hide_index=True)
 
 else:
     st.warning("No data found or backend is offline.")
